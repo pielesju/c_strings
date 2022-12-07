@@ -41,3 +41,14 @@ bool contains(char *string, int len, char c) {
 
 	return false;
 }
+
+void append(char *string, int len1, char *nstring, int len2, char *out) {
+	int len3 = len1 + len2;
+	for(int i = 0; i < len1; i++) {
+		*(out + i) = *(string + i);
+	}
+	for(int i = len1; i < len3; i++) {
+		*(out + i) = *(nstring + (i - len1));
+	}
+	*(out + len3) = '\0';
+}
